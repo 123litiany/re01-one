@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRAND NEW - 城市工业遗产档案设计有限责任公司</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', 'SimHei', 'Arial', sans-serif;
+        }
+        
+        body {
+            overflow-x: hidden;
+            background-color: #fff;
+        }
+        
+        /* Header styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10%;
+            background-color: white;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-content {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .logo-icon {
+            width: 60px;
+            height: 50px;
+            background-color: #888;
+            margin-right: 10px;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 70%);
+            position: relative;
+        }
+        
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 10px;
+            background-color: #555;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 70%);
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .brand-text {
+            font-weight: bold;
+            font-size: 22px;
+            line-height: 1;
+            color: #333;
+            letter-spacing: 1px;
+        }
+        
+        .new-text {
+            font-weight: bold;
+            font-size: 22px;
+            line-height: 1;
+            color: #333;
+            letter-spacing: 1px;
+        }
+        
+        .logo-subtitle {
+            font-size: 10px;
+            margin-top: 5px;
+            color: #666;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        .contact-icon {
+            color: #17b3a3;
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        
+        .contact-button {
+            border: 1px solid #17b3a3;
+            color: #17b3a3;
+            padding: 8px 20px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-button:hover {
+            background-color: #17b3a3;
+            color: white;
+        }
+        
+        /* Navigation styles */
+        .main-nav {
+            background-color: #1a3650;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10%;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            padding: 15px 20px;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .nav-links li:hover {
+            background-color: #254b6d;
+        }
+        
+        .nav-links li.active {
+            background-color: #254b6d;
+        }
+        
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .social-icons {
+            display: flex;
+            align-items: center;
+        }
+        
+        .social-icon {
+            color: white;
+            margin-left: 15px;
+            width: 16px;
+            height: 16px;
+            text-align: center;
+            line-height: 16px;
+            font-size: 14px;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+        
+        /* Hero banner styles */
+        .hero-banner {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            background-color: #e68631;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 10%;
+            z-index: 3;
+        }
+        
+        .industrial-text {
+            position: absolute;
+            left: 10%;
+            top: 20%;
+            font-size: 72px;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.9);
+            z-index: 1;
+            letter-spacing: 2px;
+            opacity: 0.9;
+        }
+        
+        .transformation-text {
+            position: absolute;
+            left: 10%;
+            top: 35%;
+            font-size: 72px;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.9);
+            z-index: 1;
+            letter-spacing: 2px;
+            opacity: 0.9;
+        }
+        
+        .brand-new-text {
+            font-size: 24px;
+            color: white;
+            margin-bottom: 30px;
+            font-weight: bold;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .hero-title {
+            font-size: 36px;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: bold;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .hero-subtitle {
+            font-size: 18px;
+            color: white;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .hero-button {
+            display: inline-block;
+            border: 1px solid white;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 8px 30px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .hero-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .city-silhouette {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60%;
+            height: 150px;
+            background-color: rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            clip-path: polygon(0 80%, 5% 85%, 10% 75%, 15% 90%, 20% 80%, 25% 85%, 30% 70%, 35% 85%, 40% 75%, 45% 80%, 50% 60%, 55% 70%, 60% 65%, 65% 70%, 70% 60%, 75% 70%, 80% 65%, 85% 75%, 90% 65%, 95% 75%, 100% 60%, 100% 100%, 0 100%);
+        }
+        
+        .walking-line {
+            position: absolute;
+            bottom: 70px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
+        
+        .people-container {
+            position: absolute;
+            bottom: 71px;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            z-index: 2;
+        }
+        
+        .person {
+            position: absolute;
+            bottom: 0;
+            width: 15px;
+            height: 30px;
+            background-color: rgba(0, 0, 0, 0.7);
+            transform-origin: bottom center;
+        }
+        
+        .person::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 2.5px;
+            width: 10px;
+            height: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+        }
+        
+        .person::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -5px;
+            width: 25px;
+            height: 5px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+        }
+        
+        .person-1 { left: 5%; }
+        .person-2 { left: 15%; }
+        .person-3 { left: 22%; }
+        .person-4 { left: 30%; }
+        .person-5 { left: 38%; }
+        .person-6 { left: 45%; }
+        .person-7 { left: 52%; }
+        .person-8 { left: 60%; }
+        .person-9 { left: 70%; }
+        
+        .icon-circles {
+            position: absolute;
+            top: 30%;
+            right: 20%;
+            display: flex;
+            z-index: 2;
+        }
+        
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.8);
+            margin: 0 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .gear-icon::before {
+            content: '⚙️';
+            font-size: 24px;
+        }
+        
+        .recycle-icon::before {
+            content: '♻️';
+            font-size: 24px;
+        }
+        
+        /* Map section styles */
+        .map-section {
+            display: flex;
+            justify-content: space-between;
+            padding: 30px 10%;
+            background-color: white;
+        }
+        
+        .map-item {
+            flex: 1;
+            margin: 0 10px;
+            height: 200px;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .map-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .map-1 {
+            background-color: #111;
+            position: relative;
+        }
+        
+        .map-1::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,255,0,0.2) 0%, rgba(0,0,0,0) 70%);
+        }
+        
+        .map-2 {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            position: relative;
+        }
+        
+        .map-marker {
+            position: absolute;
+            width: 20px;
+            height: 30px;
+            background-color: #17b3a3;
+            border-radius: 50% 50% 0 50%;
+            transform: rotate(45deg);
+        }
+        
+        .marker-1 { top: 25%; left: 30%; }
+        .marker-2 { top: 40%; left: 60%; }
+        .marker-3 { top: 60%; left: 40%; }
+        
+        .map-3 {
+            background-color: #e6f7f0;
+            position: relative;
+        }
+        
+        .map-3::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0,100,255,0.1) 0%, rgba(0,255,255,0.3) 100%);
+        }
+        
+        /* Map Distribution Links styles */
+        .map-links-section {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 10%;
+            background-color: #f9f9f9;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .map-link {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+            font-size: 14px;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .map-link:hover {
+            color: #17b3a3;
+        }
+        
+        .map-pin {
+            width: 16px;
+            height: 16px;
+            background-color: #17b3a3;
+            border-radius: 50%;
+            margin-left: 10px;
+            position: relative;
+            animation: bounce 2s infinite;
+        }
+        
+        .map-pin::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 5px;
+            width: 6px;
+            height: 10px;
+            background-color: #17b3a3;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        /* Protection Methods styles */
+        .protection-section {
+            padding: 60px 10%;
+            background-color: #fff;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .arrow-icon {
+            font-size: 24px;
+            margin-left: 10px;
+            color: #17b3a3;
+            animation: moveRightLeft 1.5s infinite;
+            display: inline-block;
+        }
+        
+        .protection-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .protection-button {
+            display: inline-block;
+            padding: 12px 20px;
+            border: 1px solid #333;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            min-width: 320px;
+        }
+        
+        .protection-button:hover {
+            background-color: #333;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Footer styles */
+        .footer-section {
+            background-color: #1a3650;
+            color: white;
+            padding-top: 50px;
+        }
+        
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10% 50px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding-right: 30px;
+        }
+        
+        .footer-title {
+            font-size: 18px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #17b3a3;
+        }
+        
+        .contact-item-footer {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .contact-icon-footer {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .phone-icon::before {
+            content: '📞';
+            font-size: 16px;
+        }
+        
+        .email-icon::before {
+            content: '✉';
+            font-size: 16px;
+        }
+        
+        .location-icon::before {
+            content: '📍';
+            font-size: 16px;
+        }
+        
+        .company-desc {
+            font-size: 14px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .quick-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .quick-link {
+            display: flex;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            margin-bottom: 15px;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        
+        .quick-link:hover {
+            color: #17b3a3;
+        }
+        
+        .dot-icon {
+            width: 6px;
+            height: 6px;
+            background-color: #17b3a3;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .footer-contact-btn {
+            display: inline-block;
+            background-color: #17b3a3;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .footer-contact-btn:hover {
+            background-color: white;
+            color: #17b3a3;
+        }
+        
+        .copyright-bar {
+            background-color: #122638;
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .website-url {
+            font-style: italic;
+        }
+        
+        /* Animation for footer elements */
+        .footer-column {
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        
+        .footer-column:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-icon-footer {
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item-footer:hover .contact-icon-footer {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+            }
+            
+            .footer-column {
+                width: 100%;
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+            
+            .copyright-bar {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .website-url {
+                margin-top: 10px;
+            }
+        }
+        
+        /* Animation styles */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255,255,255,0); }
+            100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+        }
+        
+        @keyframes walkingAnimation {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(5px); }
+            50% { transform: translateX(10px); }
+            75% { transform: translateX(15px); }
+            100% { transform: translateX(0); }
+        }
+        
+        @keyframes rotateGear {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        @keyframes moveRightLeft {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .slide-left {
+            opacity: 0;
+            animation: slideInLeft 1s ease forwards;
+        }
+        
+        .slide-right {
+            opacity: 0;
+            animation: slideInRight 1s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        
+        .icon-circle {
+            animation: pulseGlow 2s infinite, float 3s ease-in-out infinite;
+        }
+        
+        .icon-circle:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        
+        .gear-icon::before {
+            display: inline-block;
+            animation: rotateGear 8s linear infinite;
+        }
+        
+        .person {
+            animation: walkingAnimation 8s infinite;
+        }
+        
+        .person-2 { animation-delay: 0.5s; }
+        .person-3 { animation-delay: 1s; }
+        .person-4 { animation-delay: 1.5s; }
+        .person-5 { animation-delay: 2s; }
+        .person-6 { animation-delay: 2.5s; }
+        .person-7 { animation-delay: 3s; }
+        .person-8 { animation-delay: 3.5s; }
+        .person-9 { animation-delay: 4s; }
+        
+        .map-marker {
+            animation: pulseGlow 2s infinite;
+        }
+        
+        .marker-1 { animation-delay: 0s; }
+        .marker-2 { animation-delay: 0.7s; }
+        .marker-3 { animation-delay: 1.4s; }
+        
+        .hot-tag {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hot-tag::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                            rgba(255,255,255,0) 0%, 
+                            rgba(255,255,255,0.5) 50%, 
+                            rgba(255,255,255,0) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .animate-on-scroll.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .product-wrapper:nth-child(odd) {
+            transform: translateX(-30px);
+        }
+        
+        .product-wrapper:nth-child(even) {
+            transform: translateX(30px);
+        }
+        
+        .product-wrapper.animate {
+            transform: translateX(0);
+        }
+        
+        .section-title-large::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #17b3a3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo-content">
+                <div class="logo-icon"></div>
+                <div class="logo-text">
+                    <div>
+                        <span class="brand-text">BRAND</span>
+                    </div>
+                    <div>
+                        <span class="new-text">NEW</span>
+                    </div>
+                    <div class="logo-subtitle">城市工业遗产档案设计有限责任公司</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <span class="contact-icon">⌚</span>
+                <span>09:00AM — 06:00PM</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">📞</span>
+                <span>0311-88888888</span>
+            </div>
+            <a href="#contact" class="contact-button">联系我们</a>
+        </div>
+    </header>
+    
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <ul class="nav-links">
+            <li class="active"><a href="index.html">城市工业遗产信息管理系统</a></li>
+            <li><a href="digital-archives.html">工业遗产数字化档案</a></li>
+            <li><a href="#">数字工业遗产博物馆</a></li>
+            <li><a href="#">"秀"建文化周边</a></li>
+            <li><a href="#">使用后评价平台</a></li>
+        </ul>
+        <div class="social-icons">
+            <a href="#" class="social-icon">f</a>
+            <a href="#" class="social-icon">t</a>
+            <a href="#" class="social-icon">G+</a>
+            <a href="#" class="social-icon">Ⓘ</a>
+        </div>
+    </nav>
+    
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <!-- 已移除 INDUSTRIAL TRANSFORMATION 文字 -->
+        
+        <div class="icon-circles">
+            <div class="icon-circle">
+                <div class="gear-icon"></div>
+            </div>
+            <div class="icon-circle">
+                <div class="recycle-icon"></div>
+            </div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="brand-new-text fade-in delay-1">BRAND NEW</div>
+            <div class="hero-title fade-in delay-2">持续改造 "锈"场转换</div>
+            <div class="hero-subtitle fade-in delay-3">持续双生城市绿色园区</div>
+            <a href="#contact" class="hero-button fade-in delay-4">联系我们</a>
+        </div>
+        
+        <div class="city-silhouette"></div>
+        <div class="walking-line"></div>
+        
+        <div class="people-container">
+            <div class="person person-1"></div>
+            <div class="person person-2"></div>
+            <div class="person person-3"></div>
+            <div class="person person-4"></div>
+            <div class="person person-5"></div>
+            <div class="person person-6"></div>
+            <div class="person person-7"></div>
+            <div class="person person-8"></div>
+            <div class="person person-9"></div>
+        </div>
+    </section>
+    
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="map-item map-1"></div>
+        <div class="map-item map-2">
+            <div class="map-marker marker-1"></div>
+            <div class="map-marker marker-2"></div>
+            <div class="map-marker marker-3"></div>
+        </div>
+        <div class="map-item map-3"></div>
+    </section>
+    
+    <!-- Map Distribution Links -->
+    <section class="map-links-section">
+        <div class="map-link">
+            <span>全国工业遗产分布</span>
+            <div class="map-pin"></div>
+        </div>
+        <div class="map-link">
+            <span>河北省工业遗产分布</span>
+            <div class="map-pin"></div>
+        </div>
+        <div class="map-link">
+            <span>石家庄市工业遗产分布</span>
+            <div class="map-pin"></div>
+        </div>
+    </section>
+    
+    <!-- Protection Methods Section -->
+    <section class="protection-section">
+        <h2 class="section-title">查看国家工业遗产保护办法 <span class="arrow-icon">→</span></h2>
+        
+        <div class="protection-buttons">
+            <a href="./china-industrial-heritage-batch1.pdf" target="_blank" class="protection-button">中国工业遗产保护名录（第一批）</a>
+            <a href="./china-industrial-heritage-batch2.pdf" target="_blank" class="protection-button">中国工业遗产保护名录（第二批）</a>
+            <a href="./china-industrial-heritage-batch3.pdf" target="_blank" class="protection-button">中国工业遗产保护名录（第三批）</a>
+        </div>
+    </section>
+    
+    <!-- Cultural Products Section -->
+    <section class="cultural-section">
+        <h2 class="section-title-large">"秀"迹文化周边</h2>
+        
+        <div class="product-wrapper">
+            <div class="product-gallery">
+                <div class="product-image-large">
+                    <img src="/api/placeholder/400/300" alt="Round badge with industrial elements" class="product-img" />
+                </div>
+                <div class="product-image-large">
+                    <img src="/api/placeholder/400/300" alt="Industrial themed face mask" class="product-img" />
+                </div>
+                <div class="product-image-large">
+                    <img src="/api/placeholder/400/300" alt="Industrial themed mug" class="product-img" />
+                </div>
+                <div class="product-image-large">
+                    <img src="/api/placeholder/400/300" alt="Circular products with industrial design" class="product-img" />
+                </div>
+            </div>
+            
+            <div class="product-info">
+                <div class="hot-tag">HOT</div>
+                <h3 class="product-title">水泥厂系列</h3>
+                <div class="rating">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star half-filled">★</span>
+                </div>
+                <p class="rating-info">470位用户参与评分</p>
+                <p class="product-desc">介绍文本...</p>
+                <a href="#" class="view-series-btn">查看系列产品</a>
+            </div>
+        </div>
+        
+        <div class="product-wrapper">
+            <div class="product-gallery">
+                <div class="product-image-large">
+                    <img src="/api/placeholder/400/300" alt="Industrial themed mug with text" class="product-img" />
+                </div>
+                <div class="product-image-large">
+                    <img src="/api/placeholder/400/300" alt="Industrial patterned items" class="product-img" />
+                </div>
+                <div class="product-image-large">
+                    <img src="/api/placeholder/400/300" alt="Mug with cookies" class="product-img" />
+                </div>
+                <div class="product-image-large">
+                    <img src="/api/placeholder/400/300" alt="Industrial themed phone case" class="product-img" />
+                </div>
+            </div>
+            
+            <div class="product-info">
+                <div class="hot-tag">HOT</div>
+                <h3 class="product-title">洗煤厂系列</h3>
+                <div class="rating">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star half-filled">★</span>
+                </div>
+                <p class="rating-info">238位用户参与评分</p>
+                <p class="product-desc">介绍文本...</p>
+                <a href="#" class="view-series-btn">查看系列产品</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer Section -->
+    <footer class="footer-section" id="contact">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3 class="footer-title">联系方式</h3>
+                <div class="contact-item-footer">
+                    <span class="contact-icon-footer phone-icon"></span>
+                    <span>0311-88888888</span>
+                </div>
+                <div class="contact-item-footer">
+                    <span class="contact-icon-footer email-icon"></span>
+                    <span>example@gmail.com</span>
+                </div>
+                <div class="contact-item-footer">
+                    <span class="contact-icon-footer location-icon"></span>
+                    <span>河北省石家庄市新华区</span>
+                </div>
+            </div>
+            
+            <div class="footer-column company-intro">
+                <h3 class="footer-title">公司简介</h3>
+                <p class="company-desc">
+                    景新工业遗产建筑设计有限责任公司，以工业遗产建筑改造设计，工业遗产建筑设计、代建，工业遗产改造方案咨询，策划等服务为主营业务。
+                </p>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="footer-title">快捷跳转</h3>
+                <ul class="quick-links">
+                    <li><a href="#" class="quick-link"><span class="dot-icon"></span>关于我们</a></li>
+                    <li><a href="#" class="quick-link"><span class="dot-icon"></span>项目详情</a></li>
+                    <li><a href="#" class="quick-link"><span class="dot-icon"></span>合作伙伴</a></li>
+                </ul>
+                <a href="#contact" class="footer-contact-btn">联系我们</a>
+            </div>
+        </div>
+        
+        <div class="copyright-bar">
+            <div class="copyright-text">
+                Copyright © 2023 - 景新工业遗产建筑设计有限责任公司 All Right Reserved
+            </div>
+            <div class="website-url">
+                https://kyuan-13011722000.cos.ap-beijing.myqcloud.com/brandnew-html/index.html#
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animation for elements with animation classes
+            const animatedElements = document.querySelectorAll('.fade-in, .slide-left, .slide-right');
+            
+            // Ensure animations trigger
+            setTimeout(() => {
+                animatedElements.forEach(el => {
+                    el.style.opacity = '0';
+                    setTimeout(() => {
+                        el.style.opacity = '1';
+                    }, 100);
+                });
+            }, 100);
+            
+            // Animate elements when they come into view
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.product-wrapper, .section-title, .section-title-large, .protection-button, .footer-column').forEach(el => {
+                observer.observe(el);
+                el.classList.add('animate-on-scroll');
+            });
+        });
+    </script>
+</body>
+</html>
