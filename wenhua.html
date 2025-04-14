@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>“秀”迹文化周边</title>
+    <style>
+        /* Basic Reset and Font Setup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+             height: 100%; /* Ensure body can take full height */
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif; /* Common font stack */
+            background-color: #f8f9fa; /* Light grey background */
+            color: #333;
+            line-height: 1.6;
+            font-size: 16px; /* Base font size */
+            display: flex; /* Use flexbox for sticky footer */
+            flex-direction: column; /* Stack header, main, footer vertically */
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #ffffff;
+            padding: 15px 30px;
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            text-align: center; /* Example alignment */
+            flex-shrink: 0; /* Prevent header from shrinking */
+        }
+        header h1 { /* Example header content */
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        header nav a {
+            margin: 0 10px;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+         header nav a:hover {
+             color: #000;
+         }
+
+
+        /* Main Content Area */
+         main {
+            flex-grow: 1; /* Allow main content to take up available space */
+            width: 100%; /* Ensure main takes full width */
+         }
+
+
+        /* Main Container for Peripherals */
+        .peripherals-container {
+            max-width: 1200px; /* Adjust max width as needed */
+            margin: 40px auto; /* Center the container with top/bottom margin */
+            padding: 0 20px; /* Add padding on the sides */
+        }
+
+        /* Introduction Section */
+        .page-intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-intro h1 {
+            font-size: 2.4em; /* Adjust size */
+            color: #444;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .page-intro p {
+            font-size: 1em;
+            color: #666;
+            max-width: 750px; /* Limit width of description */
+            margin: 0 auto; /* Center the description paragraph */
+            line-height: 1.8;
+        }
+
+        /* Category Filters Navigation */
+        .category-filters {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .category-filters ul {
+            list-style: none;
+            padding: 8px; /* Padding inside the rounded container */
+            margin: 0;
+            display: inline-block; /* Allow centering */
+            background-color: #ffffff;
+            border-radius: 50px; /* Make it pill-shaped */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+            border: 1px solid #eee; /* Subtle border */
+        }
+
+        .category-filters li {
+            display: inline-block; /* Horizontal layout */
+            margin: 0 5px; /* Spacing between items */
+        }
+
+        .category-filters a {
+            display: block;
+            padding: 10px 28px; /* Padding inside each tab */
+            text-decoration: none;
+            color: #555;
+            font-size: 0.95em;
+            border-radius: 40px; /* Rounded tabs */
+            transition: background-color 0.3s, color 0.3s;
+            position: relative; /* Needed for the active underline */
+            font-weight: 500;
+            cursor: pointer; /* Indicate clickable */
+        }
+
+        .category-filters a:hover {
+            color: #000;
+            background-color: #f0f0f0; /* Slight hover effect */
+        }
+
+        .category-filters a.active {
+            color: #333;
+            font-weight: 700; /* Bold active tab */
+        }
+
+        /* Green underline for the active tab */
+        .category-filters a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 5px; /* Position the line slightly above the bottom */
+            left: 20%;   /* Start inset */
+            right: 20%;  /* End inset */
+            height: 3px;
+            background-color: #8BC34A; /* Green color from image */
+            border-radius: 1.5px;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            --grid-gap: 30px; /* Define gap variable */
+            align-items: start;
+        }
+
+        /* Individual Product Card */
+        .product-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 25px 20px 20px 20px;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease-in-out,
+                        box-shadow 0.3s ease-in-out,
+                        opacity 0.3s ease-in-out,
+                        padding 0.3s ease-in-out,
+                        margin 0.3s ease-in-out,
+                        max-height 0.3s ease-in-out;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            max-height: 500px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        }
+
+         /* Style for hidden items (used by JS) */
+         .product-card.hidden {
+            opacity: 0;
+            transform: scale(0.95);
+            pointer-events: none;
+            max-height: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-top: 0;
+            margin-bottom: calc(-1 * var(--grid-gap, 30px));
+            border-width: 0;
+        }
+
+
+        .product-card .image-container {
+            position: relative; /* Needed for overlay positioning */
+            height: 200px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            overflow: hidden; /* Ensure overlay elements don't spill */
+        }
+
+        .product-card img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.3s ease; /* Optional: slight zoom on hover */
+        }
+        /* Optional: slight zoom effect on image itself */
+        /* .product-card:hover img {
+            transform: scale(1.05);
+        } */
+
+        .product-card h3 {
+            font-size: 1.1em;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        /* Green line below product name */
+        .product-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 45px;
+            height: 2.5px;
+            background-color: #8BC34A;
+            border-radius: 1.5px;
+        }
+
+        .product-card .price {
+            font-size: 1.05em;
+            color: #555;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        /* --- Overlay Styles --- */
+        .overlay-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.65); /* Dark semi-transparent overlay */
+            display: flex;
+            flex-direction: column; /* Stack icon and button vertically if needed */
+            align-items: center;
+            justify-content: center;
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.3s ease-in-out;
+            pointer-events: none; /* Don't block hover unless visible */
+            padding: 15px;
+        }
+
+        .product-card:hover .overlay-content {
+            opacity: 1; /* Show on hover */
+            pointer-events: auto; /* Allow interaction */
+        }
+
+        .overlay-icon {
+            position: absolute; /* Position relative to overlay-content */
+            top: 10px;
+            left: 10px; /* Changed to top-left */
+            background-color: rgba(40, 40, 50, 0.9); /* Dark background for icon */
+            color: white;
+            border-radius: 6px; /* Slightly rounded square */
+            width: 38px; /* Adjust size */
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3em; /* Adjust icon size */
+            line-height: 1; /* Ensure vertical centering */
+        }
+
+        .overlay-button {
+            background-color: transparent;
+            border: 2px solid #8BC34A; /* Green border */
+            color: #ffffff; /* White text */
+            padding: 10px 25px; /* Adjust padding */
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em; /* Adjust font size */
+            font-weight: 500;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            margin-top: 20px; /* Add space if icon is also present */
+            /* Ensure button is not pushed by icon (if icon was centered) */
+            position: relative;
+            z-index: 1;
+        }
+
+        .overlay-button:hover {
+            background-color: #8BC34A; /* Green background on hover */
+            color: #ffffff; /* White text on hover */
+        }
+        /* --- End Overlay Styles --- */
+
+
+        /* Footer Styles */
+        footer {
+            background-color: #e9ecef; /* Light grey footer */
+            color: #6c757d; /* Muted text color */
+            text-align: center;
+            padding: 20px 30px;
+            border-top: 1px solid #dee2e6;
+            margin-top: 40px; /* Space above footer */
+            flex-shrink: 0; /* Prevent footer from shrinking */
+        }
+         footer a {
+             color: #495057;
+             text-decoration: none;
+             margin: 0 8px;
+         }
+         footer a:hover {
+             text-decoration: underline;
+         }
+
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+                --grid-gap: 25px;
+                 gap: var(--grid-gap);
+            }
+            .page-intro h1 { font-size: 2em; }
+            .product-card.hidden { margin-bottom: calc(-1 * var(--grid-gap, 25px)); }
+        }
+
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                --grid-gap: 20px;
+                 gap: var(--grid-gap);
+            }
+             .category-filters a { padding: 8px 18px; font-size: 0.9em;}
+             .peripherals-container { padding: 0 15px; margin: 30px auto; }
+             .page-intro h1 { font-size: 1.8em; }
+             .page-intro p { font-size: 0.95em;}
+             .product-card.hidden { margin-bottom: calc(-1 * var(--grid-gap, 20px)); }
+             .overlay-button { padding: 8px 15px; font-size: 0.9em;}
+             .overlay-icon { width: 32px; height: 32px; font-size: 1.1em; top: 8px; left: 8px;}
+        }
+
+        @media (max-width: 576px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+                --grid-gap: 20px;
+                gap: var(--grid-gap);
+            }
+             .category-filters ul { display: block; border-radius: 10px; padding: 10px 5px;}
+             .category-filters li { display: block; margin: 5px 0;}
+             .category-filters a { display: block; text-align: center; }
+             .category-filters a.active::after { left: 35%; right: 35%;}
+             .page-intro h1 { font-size: 1.6em; }
+             .page-intro p { font-size: 0.9em;}
+             .product-card.hidden { margin-bottom: calc(-1 * var(--grid-gap, 20px)); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- <h1>网站标题 / Logo</h1> -->
+        <nav>
+            <a href="index.html">首页</a> |
+            <!-- <a href="#">关于我们</a> | -->
+            <!-- <a href="#">产品中心</a> | -->
+            <!-- <a href="#">联系我们</a> -->
+        </nav>
+    </header>
+
+    <main>
+        <div class="peripherals-container">
+
+            <section class="page-intro">
+                <h1>“秀”迹文化周边</h1>
+                <p>焕新工业遗产建筑设计有限责任公司致力于工业遗产保护与开发，与地方工业遗产联名，打造“秀”迹文化IP，让您体验到文化的力量！</p>
+            </section>
+
+            <nav class="category-filters">
+                 <!-- Added data-category attributes to links -->
+                <ul>
+                    <li><a href="#" class="active" data-category="all">全部产品</a></li>
+                    <li><a href="#" data-category="hegang">河钢</a></li>
+                    <li><a href="#" data-category="kailuan">开滦矿山公园</a></li>
+                    <li><a href="#" data-category="cement">水泥厂</a></li>
+                    <li><a href="#" data-category="coalwash">洗煤厂</a></li>
+                </ul>
+            </nav>
+
+            <div class="product-grid">
+
+                <!-- Product Card 1: Mouse Pad (Cement Plant) -->
+                <div class="product-card" data-category="cement">
+                    <div class="image-container">
+                        <img src="w1.png" alt="鼠标垫">
+                        <div class="overlay-content">
+                            <div class="overlay-icon"></div> <!-- Replace with actual icon if needed -->
+                            <button class="overlay-button">加入购物车 🛒</button>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>鼠标垫</h3>
+                        <p class="price">xx元</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 2: Phone Stand (Kailuan) -->
+                <div class="product-card" data-category="kailuan">
+                    <div class="image-container">
+                        <img src="w2.png" alt="手机支架">
+                        <div class="overlay-content">
+                             <div class="overlay-icon"></div>
+                            <button class="overlay-button">加入购物车 🛒</button>
+                        </div>
+                    </div>
+                     <div>
+                        <h3>手机支架</h3>
+                        <p class="price">xx元</p>
+                     </div>
+                </div>
+
+                <!-- Product Card 3: Porcelain Bottle (Kailuan) -->
+                <div class="product-card" data-category="kailuan">
+                     <div class="image-container">
+                        <img src="w3.png" alt="瓷瓶">
+                         <div class="overlay-content">
+                             <div class="overlay-icon"></div>
+                            <button class="overlay-button">加入购物车 🛒</button>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>瓷瓶</h3>
+                        <p class="price">xx元</p>
+                     </div>
+                </div>
+
+                <!-- Product Card 4: Suitcase (Hegang) -->
+                <div class="product-card" data-category="hegang">
+                    <div class="image-container">
+                        <img src="w4.png" alt="行李箱">
+                         <div class="overlay-content">
+                             <div class="overlay-icon"></div>
+                            <button class="overlay-button">加入购物车 🛒</button>
+                        </div>
+                    </div>
+                     <div>
+                        <h3>行李箱</h3>
+                        <p class="price">xx元</p>
+                     </div>
+                </div>
+
+                <!-- Product Card 5: Mask (Cement Plant) -->
+                <div class="product-card" data-category="cement">
+                     <div class="image-container">
+                        <img src="w5.png" alt="口罩">
+                         <div class="overlay-content">
+                             <div class="overlay-icon"></div>
+                            <button class="overlay-button">加入购物车 🛒</button>
+                        </div>
+                    </div>
+                     <div>
+                        <h3>口罩</h3>
+                        <p class="price">xx元</p>
+                     </div>
+                </div>
+
+                <!-- Product Card 6: Fridge Magnet (Coal Washing Plant) -->
+                <div class="product-card" data-category="coalwash">
+                     <div class="image-container">
+                        <img src="w6.png" alt="冰箱贴">
+                         <div class="overlay-content">
+                             <div class="overlay-icon"></div>
+                            <button class="overlay-button">加入购物车 🛒</button>
+                        </div>
+                    </div>
+                     <div>
+                        <h3>冰箱贴</h3>
+                        <p class="price">xx元</p>
+                     </div>
+                </div>
+
+                <!-- Product Card 7: Phone Case (Coal Washing Plant) -->
+                <div class="product-card" data-category="coalwash">
+                     <div class="image-container">
+                        <img src="w7.png" alt="手机壳">
+                         <div class="overlay-content">
+                             <div class="overlay-icon"></div>
+                            <button class="overlay-button">加入购物车 🛒</button>
+                        </div>
+                    </div>
+                     <div>
+                        <h3>手机壳</h3>
+                        <p class="price">xx元</p>
+                     </div>
+                </div>
+
+                <!-- Product Card 8: Enamel Mug (Coal Washing Plant) -->
+                <div class="product-card" data-category="coalwash">
+                    <div class="image-container">
+                        <img src="w8.png" alt="搪瓷杯">
+                         <div class="overlay-content">
+                             <!-- <div class="overlay-icon"></div> -->
+                            <button class="overlay-button">加入购物车 🛒</button>
+                        </div>
+                    </div>
+                     <div>
+                        <h3>搪瓷杯</h3>
+                        <p class="price">xx元</p>
+                     </div>
+                </div>
+
+            </div><!-- /.product-grid -->
+
+        </div> <!-- /.peripherals-container -->
+    </main>
+
+    <footer>
+        <!-- <p>© 2023 [您的公司名称]. 保留所有权利.</p> -->
+        <p>
+            <!-- <a href="#">隐私政策</a> | <a href="#">服务条款</a> | <a href="#">联系我们</a> -->
+        </p>
+    </footer>
+
+
+    <script>
+        // Javascript remains the same as previous version for filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterLinks = document.querySelectorAll('.category-filters a');
+            const productCards = document.querySelectorAll('.product-grid .product-card');
+            // const gridContainer = document.querySelector('.product-grid'); // Not strictly needed currently
+
+             const cardStyle = productCards.length > 0 ? window.getComputedStyle(productCards[0]) : {};
+             const transitionDuration = parseFloat(cardStyle.transitionDuration?.split(',')[0] || 0.3) * 1000;
+
+            filterLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    const targetCategory = this.getAttribute('data-category');
+
+                    filterLinks.forEach(innerLink => innerLink.classList.remove('active'));
+                    this.classList.add('active');
+
+                    productCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        const shouldShow = (targetCategory === 'all' || cardCategory === targetCategory);
+                        const isHidden = card.classList.contains('hidden');
+
+                        if (shouldShow && isHidden) {
+                            card.classList.remove('hidden');
+                             card.style.display = 'flex';
+
+                            requestAnimationFrame(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'scale(1)';
+                                card.style.maxHeight = '500px';
+                                card.style.paddingTop = '';
+                                card.style.paddingBottom = '';
+                                card.style.marginTop = '';
+                                card.style.marginBottom = '';
+                                card.style.borderWidth = '';
+                                card.style.pointerEvents = 'auto';
+                            });
+
+                        } else if (!shouldShow && !isHidden) {
+                             card.classList.add('hidden');
+                             card.style.pointerEvents = 'none';
+
+                            setTimeout(() => {
+                                if (card.classList.contains('hidden')) {
+                                    card.style.display = 'none';
+                                }
+                            }, transitionDuration);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
