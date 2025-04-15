@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - BRAND NEW - 城市工业遗产档案设计有限责任公司</title>
+    <style>
+        /* 保留主页的基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', 'SimHei', 'Arial', sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+            background-color: #fff;
+        }
+
+        /* Header styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10%;
+            background-color: white;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        /* --- MODIFICATION START: New Logo Image Styles --- */
+        .logo-link {
+            display: inline-block; /* Allows setting dimensions if needed */
+            line-height: 0; /* Prevents extra space below inline images */
+        }
+
+        .logo-image {
+            display: block; /* Prevents bottom space under image */
+            max-height: 80px; /* <-- 设置 Logo 高度为 80px */
+            width: auto;      /* Maintain aspect ratio */
+        }
+        /* --- MODIFICATION END: New Logo Image Styles --- */
+
+
+        /* --- MODIFICATION START: Commented out old logo styles --- */
+        /*
+        .logo-content {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 50px;
+            background-color: #888;
+            margin-right: 10px;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 70%);
+            position: relative;
+        }
+
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 10px;
+            background-color: #555;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 70%);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-text {
+            font-weight: bold;
+            font-size: 22px;
+            line-height: 1;
+            color: #333;
+            letter-spacing: 1px;
+        }
+
+        .new-text {
+            font-weight: bold;
+            font-size: 22px;
+            line-height: 1;
+            color: #333;
+            letter-spacing: 1px;
+        }
+
+        .logo-subtitle {
+            font-size: 10px;
+            margin-top: 5px;
+            color: #666;
+        }
+        */
+        /* --- MODIFICATION END: Commented out old logo styles --- */
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .contact-icon {
+            color: #17b3a3; /* 使用醒目的颜色 */
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        .contact-button {
+            border: 1px solid #17b3a3;
+            color: #17b3a3;
+            padding: 8px 20px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background-color: #17b3a3;
+            color: white;
+        }
+
+        /* 新导航栏样式 */
+        .main-nav {
+            background-color: #1a3650; /* 与页脚一致的深蓝 */
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10%;
+            align-items: center; /* 垂直居中对齐 */
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            height: 50px; /* 设置导航栏高度 */
+        }
+
+        .nav-links li {
+            display: flex; /* 使用 flex 垂直居中 */
+            align-items: center; /* 垂直居中 */
+            height: 100%; /* 撑满导航栏高度 */
+            padding: 0 20px;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links li:hover {
+            background-color: #254b6d; /* 悬停变色 */
+        }
+
+        .nav-links li.active {
+            background-color: #254b6d; /* 当前页高亮 */
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            height: 100%; /* 链接撑满 li 高度 */
+            display: flex; /* 垂直居中链接内文字 */
+            align-items: center; /* 垂直居中 */
+        }
+
+        .social-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .social-icon {
+            color: white;
+            margin-left: 15px; /* 图标间距 */
+            width: 16px; /* 可选：设置图标大小 */
+            height: 16px;
+            text-align: center;
+            line-height: 16px; /* 垂直居中（如果不用flex） */
+            font-size: 14px;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2); /* 悬停放大效果 */
+        }
+
+        /* 客服对话页面样式 */
+        .chat-container {
+            width: 80%;
+            max-width: 1000px;
+            margin: 30px auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            height: 600px; /* 设置聊天框高度 */
+        }
+
+        .chat-header {
+            background-color: #1a3650; /* 聊天框头部背景色 */
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .chat-title {
+            margin-left: 15px;
+            font-size: 18px;
+        }
+
+        .chat-logo {
+            width: 30px;
+            height: 30px;
+            background-color: #17b3a3; /* 使用主题色 */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .chat-body {
+            flex: 1; /* 占据剩余空间 */
+            padding: 20px;
+            background-color: #f5f5f5; /* 聊天背景色 */
+            overflow-y: auto; /* 内容超出时滚动 */
+        }
+
+        .message {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .message-customer {
+            justify-content: flex-end; /* 客户消息靠右 */
+        }
+
+        .message-service {
+            justify-content: flex-start; /* 客服消息靠左 */
+        }
+
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ccc; /* 默认头像背景 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+
+        .message-customer .message-avatar {
+            order: 2; /* 头像在右边 */
+            margin-right: 0;
+            margin-left: 10px;
+            background-color: #e68631; /* 客户头像颜色 */
+        }
+
+        .message-service .message-avatar {
+            background-color: #17b3a3; /* 客服头像颜色 */
+        }
+
+        .message-content {
+            max-width: 70%; /* 消息气泡最大宽度 */
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .message-customer .message-content {
+            background-color: #fff; /* 客户气泡背景 */
+            border: 1px solid #e0e0e0;
+        }
+
+        .message-service .message-content {
+            background-color: #e6f7f0; /* 客服气泡背景 */
+            border: 1px solid #c0e6d9;
+        }
+
+        .chat-footer {
+            padding: 15px;
+            background-color: white;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+        }
+
+        .chat-input {
+            flex: 1; /* 输入框占据大部分空间 */
+            border: 1px solid #ddd;
+            border-radius: 20px; /* 圆角输入框 */
+            padding: 8px 15px;
+            font-size: 14px;
+            outline: none; /* 去除点击时的边框 */
+        }
+
+        .send-button {
+            background-color: #17b3a3;
+            color: white;
+            border: none;
+            border-radius: 20px; /* 圆角按钮 */
+            padding: 8px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .send-button:hover {
+            background-color: #15a192; /* 按钮悬停变色 */
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 40px 0 20px;
+            font-size: 24px;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #17b3a3; /* 标题下划线 */
+        }
+
+        /* 添加社交媒体图标样式（保持不变） */
+        /* ... */
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .chat-container {
+                width: 95%; /* 移动端聊天框宽度 */
+                height: 500px; /* 移动端聊天框高度 */
+            }
+            .header { /* 让 header 在小屏幕上堆叠 */
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .contact-info { /* 联系信息换行 */
+                margin-top: 15px;
+            }
+            .main-nav { /* 导航栏换行 */
+                 flex-direction: column;
+                 padding: 0;
+                 height: auto; /* 高度自适应 */
+            }
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                height: auto; /* 高度自适应 */
+            }
+            .nav-links li {
+                width: 100%;
+                justify-content: center; /* 文字居中 */
+                padding: 10px 0; /* 调整内边距 */
+                border-bottom: 1px solid #254b6d; /* 添加分隔线 */
+            }
+             .nav-links li:last-child {
+                 border-bottom: none; /* 最后一个无分隔线 */
+             }
+            .social-icons {
+                 justify-content: center; /* 社交图标居中 */
+                 padding: 10px 0; /* 添加上下内边距 */
+                 width: 100%; /* 占满宽度 */
+                 background-color: #133756; /* 与导航背景一致 */
+            }
+            .social-icon {
+                margin: 0 10px; /* 调整图标间距 */
+            }
+        }
+
+        /* Footer styles */
+        .footer-section {
+            background-color: #1a3650;
+            color: white;
+            padding-top: 50px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10% 50px;
+            flex-wrap: wrap;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px; /* 保证列宽 */
+            margin-bottom: 30px;
+            padding-right: 30px; /* 列间距 */
+        }
+
+        .footer-title {
+            font-size: 18px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #17b3a3; /* 标题下划线颜色 */
+        }
+
+        .contact-item-footer {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .contact-icon-footer {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1); /* 图标背景 */
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .phone-icon::before {
+            content: '📞';
+            font-size: 16px;
+        }
+
+        .email-icon::before {
+            content: '✉';
+            font-size: 16px;
+        }
+
+        .location-icon::before {
+            content: '📍';
+            font-size: 16px;
+        }
+
+        .company-desc {
+            font-size: 14px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8); /* 描述文字颜色稍浅 */
+        }
+
+        .quick-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quick-link {
+            display: flex;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            margin-bottom: 15px;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .quick-link:hover {
+            color: #17b3a3; /* 链接悬停变色 */
+        }
+
+        .dot-icon {
+            width: 6px;
+            height: 6px;
+            background-color: #17b3a3;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .footer-contact-btn {
+            display: inline-block;
+            background-color: #17b3a3;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .footer-contact-btn:hover {
+            background-color: white;
+            color: #17b3a3; /* 按钮悬停反色 */
+        }
+
+        .copyright-bar {
+            background-color: #122638; /* 版权栏更深色 */
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap; /* 允许换行 */
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6); /* 版权文字更浅 */
+        }
+
+        .website-url {
+            font-style: italic;
+        }
+
+        /* Animation for footer elements */
+        .footer-column {
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        /* 页脚悬停效果 */
+        .footer-column:hover {
+            transform: translateY(-5px); /* 轻微上移 */
+        }
+
+        .contact-icon-footer {
+            transition: all 0.3s ease;
+        }
+
+        .contact-item-footer:hover .contact-icon-footer {
+            background-color: rgba(255, 255, 255, 0.2); /* 图标悬停背景变亮 */
+            transform: scale(1.1); /* 图标悬停放大 */
+        }
+
+        /* 响应式页脚 */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column; /* 垂直排列 */
+            }
+
+            .footer-column {
+                width: 100%; /* 占满宽度 */
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+
+            .copyright-bar {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .website-url {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 页头 -->
+    <div class="header">
+        <div class="logo-container">
+             <!-- --- MODIFICATION START: Replaced logo content with image --- -->
+             <a href="index.html" class="logo-link">
+                 <!-- IMPORTANT: 确保 logo.png 图片路径正确 -->
+                 <img src="logo.png" alt="BRAND NEW - 城市工业遗产档案设计有限责任公司 Logo" class="logo-image">
+             </a>
+             <!-- --- MODIFICATION END: Replaced logo content with image --- -->
+        </div>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span class="contact-icon">📞</span>
+                <span>0311-88888888</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">⌚</span> <!-- 使用手表图标表示时间 -->
+                <span>09:00AM — 06:00PM</span>
+            </div>
+            <!-- 联系我们按钮链接到当前页面，如果当前就是联系我们页，可以考虑去掉或链接回首页 -->
+            <a href="lianxiwomen.html" class="contact-button active">联系我们</a> <!-- 添加 active 类表示当前页面 -->
+        </div>
+    </div>
+
+    <!-- 新导航栏 -->
+    <div class="main-nav">
+        <ul class="nav-links">
+            <li><a href="index.html">城市工业遗产信息管理系统</a></li>
+            <li><a href="digital-archives.html">工业遗产数字化档案</a></li>
+            <li><a href="digital-museum.html">数字工业遗产博物馆</a></li>
+            <li><a href="anli.html">实际案例</a></li>
+            <li><a href="pingjia.html">使用后评价平台</a></li>
+            <li><a href="wenhua.html">“秀”迹文化周边</a></li>
+        </ul>
+        <div class="social-icons">
+            <!-- 实际使用时应替换为 Font Awesome 或其他图标库的真实图标 -->
+            <a href="#" class="social-icon">f</a>
+            <a href="#" class="social-icon">t</a>
+            <a href="#" class="social-icon">G+</a>
+            <a href="#" class="social-icon">i</a>
+        </div>
+    </div>
+
+    <h2 class="section-title">在线客服</h2>
+
+    <!-- 客服对话框 -->
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="chat-logo">BN</div>
+            <div class="chat-title">BRAND NEW 客服中心</div>
+        </div>
+        <div class="chat-body">
+            <!-- 客服消息 -->
+            <div class="message message-service">
+                <div class="message-avatar">客</div>
+                <div class="message-content">
+                    您好！欢迎访问BRAND NEW城市工业遗产档案设计有限责任公司的客服中心。我是您的专属客服顾问，很高兴为您提供服务。请问有什么可以帮助您的吗？
+                </div>
+            </div>
+
+            <!-- 客户消息 -->
+            <div class="message message-customer">
+                <div class="message-avatar">访</div>
+                <div class="message-content">
+                    你好，我想了解一下贵公司的主要业务范围是什么？
+                </div>
+            </div>
+
+            <!-- 客服消息 -->
+            <div class="message message-service">
+                <div class="message-avatar">客</div>
+                <div class="message-content">
+                    我们BRAND NEW公司专注于城市工业遗产的保护、改造与创新利用，主要业务包括：工业遗产档案整理与数字化、工业建筑改造设计、文化创意空间规划、工业遗址景观设计以及工业文化展示策划等。我们致力于将历史工业遗产转化为具有现代功能的创新空间。
+                </div>
+            </div>
+
+            <!-- 客户消息 -->
+            <div class="message message-customer">
+                <div class="message-avatar">访</div>
+                <div class="message-content">
+                    贵公司有什么成功案例可以分享吗？
+                </div>
+            </div>
+
+            <!-- 客服消息 -->
+            <div class="message message-service">
+                <div class="message-avatar">客</div>
+                <div class="message-content">
+                    当然！我们有多个成功改造案例，比如：将废弃的老厂房改造成创意产业园区"创新工场"；将历史纺织厂改建为文化艺术中心"织梦空间"；以及将老火车站改造成集文创、餐饮、展览为一体的城市新地标"轨迹广场"等。这些项目都成功保留了工业记忆，同时注入了新的功能与活力，获得了业界高度评价。
+                </div>
+            </div>
+
+            <!-- 客户消息 -->
+            <div class="message message-customer">
+                <div class="message-avatar">访</div>
+                <div class="message-content">
+                    如果我们有一个废弃的老工厂想要改造，贵公司的服务流程是怎样的？
+                </div>
+            </div>
+
+            <!-- 客服消息 -->
+            <div class="message message-service">
+                <div class="message-avatar">客</div>
+                <div class="message-content">
+                    我们的服务流程通常包括以下几个步骤：1. 现场勘察与历史资料收集；2. 工业遗产价值评估；3. 改造方案概念设计；4. 功能规划与空间设计；5. 施工图纸与技术支持；6. 施工过程监督；7. 后期运营咨询。我们会根据每个项目的特点，为客户提供个性化的解决方案，平衡历史保护与现代利用的关系。
+                </div>
+            </div>
+
+            <!-- 客户消息 -->
+            <div class="message message-customer">
+                <div class="message-avatar">访</div>
+                <div class="message-content">
+                    贵公司的设计理念是什么？
+                </div>
+            </div>
+
+            <!-- 客服消息 -->
+            <div class="message message-service">
+                <div class="message-avatar">客</div>
+                <div class="message-content">
+                    我们的设计理念是"保留记忆，创造未来"。我们相信每个工业遗产都承载着一段独特的历史与记忆，我们的使命是尊重这些历史价值，同时通过创新设计为其注入新的生命力。我们注重可持续发展，强调空间利用的多元化与包容性，致力于创造既能传承工业文化，又能满足现代社会需求的空间环境。
+                </div>
+            </div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" class="chat-input" placeholder="请输入您的问题...">
+            <button class="send-button">发送</button>
+        </div>
+    </div>
+
+    <!-- 添加页脚部分 -->
+    <footer class="footer-section" id="contact">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3 class="footer-title">联系方式</h3>
+                <div class="contact-item-footer">
+                    <span class="contact-icon-footer phone-icon"></span>
+                    <span>0311-88888888</span>
+                </div>
+                <div class="contact-item-footer">
+                    <span class="contact-icon-footer email-icon"></span>
+                    <span>example@gmail.com</span>
+                </div>
+                <div class="contact-item-footer">
+                    <span class="contact-icon-footer location-icon"></span>
+                    <span>河北省石家庄市新华区</span>
+                </div>
+            </div>
+
+            <div class="footer-column company-intro">
+                <h3 class="footer-title">公司简介</h3>
+                <p class="company-desc">
+                    景新工业遗产建筑设计有限责任公司，以工业遗产建筑改造设计，工业遗产建筑设计、代建，工业遗产改造方案咨询，策划等服务为主营业务。
+                </p>
+            </div>
+
+            <!-- Optional Quick Links column (保持注释或根据需要添加) -->
+            <!--
+            <div class="footer-column">
+                <h3 class="footer-title">快捷跳转</h3>
+                <ul class="quick-links">
+                    <li><a href="#" class="quick-link"><span class="dot-icon"></span>关于我们</a></li>
+                    <li><a href="#" class="quick-link"><span class="dot-icon"></span>项目详情</a></li>
+                    <li><a href="#" class="quick-link"><span class="dot-icon"></span>合作伙伴</a></li>
+                </ul>
+                <a href="lianxiwomen.html" class="footer-contact-btn">联系我们</a>
+            </div>
+            -->
+        </div>
+
+        <div class="copyright-bar">
+            <div class="copyright-text">
+                Copyright © 2023 - 景新工业遗产建筑设计有限责任公司 All Right Reserved
+            </div>
+            <div class="website-url">
+                https://kyuan-13011722000.cos.ap-beijing.myqcloud.com/brandnew-html/index.html#
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的发送消息功能
+        document.querySelector('.send-button').addEventListener('click', function() {
+            const input = document.querySelector('.chat-input');
+            const message = input.value.trim();
+
+            if (message) {
+                // 添加用户消息
+                const chatBody = document.querySelector('.chat-body');
+
+                const userMessageDiv = document.createElement('div');
+                userMessageDiv.className = 'message message-customer';
+                userMessageDiv.innerHTML = `
+                    <div class="message-avatar">访</div>
+                    <div class="message-content">${escapeHTML(message)}</div> <!-- Escape HTML -->
+                `;
+                chatBody.appendChild(userMessageDiv);
+
+                // 清空输入框
+                input.value = '';
+
+                // 滚动到底部
+                chatBody.scrollTop = chatBody.scrollHeight;
+
+                // 模拟客服回复（实际应用中应该连接到真实的客服系统）
+                setTimeout(function() {
+                    const serviceReply = document.createElement('div');
+                    serviceReply.className = 'message message-service';
+                    serviceReply.innerHTML = `
+                        <div class="message-avatar">客</div>
+                        <div class="message-content">感谢您的咨询！我们的客服人员会尽快回复您的问题。如果您需要更紧急的帮助，请拨打我们的客服热线0311-88888888。</div>
+                    `;
+                    chatBody.appendChild(serviceReply);
+
+                    // 滚动到底部
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                }, 1000);
+            }
+        });
+
+        // 支持按Enter键发送消息
+        document.querySelector('.chat-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                // 阻止默认的回车换行行为（如果需要）
+                e.preventDefault();
+                document.querySelector('.send-button').click();
+            }
+        });
+
+        // Function to escape HTML content to prevent XSS
+        function escapeHTML(str) {
+             var div = document.createElement('div');
+             div.appendChild(document.createTextNode(str));
+             return div.innerHTML;
+         }
+
+    </script>
+</body>
+</html>

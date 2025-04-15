@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字工业遗产博物馆 - BRAND NEW</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', 'SimHei', 'Arial', sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+            background-color: #fff;
+        }
+
+        /* Header styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10%;
+            background-color: white;
+        }
+
+        .logo-container {
+            display: flex; /* Keeps alignment capabilities */
+            align-items: center;
+        }
+
+        /* --- MODIFICATION START: New Logo Image Styles --- */
+        .logo-link {
+            display: inline-block; /* Allows setting dimensions if needed */
+            line-height: 0; /* Prevents extra space below inline images */
+        }
+
+        .logo-image {
+            display: block; /* Prevents bottom space under image */
+            max-height: 80px; /* Consistent with the first file */
+            width: auto;      /* Maintain aspect ratio */
+            /* Optional: Add margin if needed */
+            /* margin-right: 15px; */
+        }
+        /* --- MODIFICATION END: New Logo Image Styles --- */
+
+
+        /* --- MODIFICATION START: Commented out old logo styles --- */
+        /*
+        .logo-content {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 50px;
+            background-color: #888;
+            margin-right: 10px;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 70%);
+            position: relative;
+        }
+
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 10px;
+            background-color: #555;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 70%);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-text {
+            font-weight: bold;
+            font-size: 22px;
+            line-height: 1;
+            color: #333;
+            letter-spacing: 1px;
+        }
+
+        .new-text {
+            font-weight: bold;
+            font-size: 22px;
+            line-height: 1;
+            color: #333;
+            letter-spacing: 1px;
+        }
+
+        .logo-subtitle {
+            font-size: 10px;
+            margin-top: 5px;
+            color: #666;
+        }
+        */
+        /* --- MODIFICATION END: Commented out old logo styles --- */
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .contact-icon {
+            color: #17b3a3;
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        .contact-button {
+            border: 1px solid #17b3a3;
+            color: #17b3a3;
+            padding: 8px 20px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background-color: #17b3a3;
+            color: white;
+        }
+
+        /* Navigation styles */
+        .main-nav {
+            background-color: #1a3650;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10%;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            padding: 15px 20px;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links li:hover {
+            background-color: #254b6d;
+        }
+
+        .nav-links li.active {
+            background-color: #254b6d;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .social-icon {
+            color: white;
+            margin-left: 15px;
+            width: 16px;
+            height: 16px;
+            text-align: center;
+            line-height: 16px;
+            font-size: 14px;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+
+        /* Digital Museum Content Styles */
+        .museum-content {
+            padding: 50px 10%;
+            text-align: center;
+        }
+
+        .museum-title {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .museum-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 50px;
+        }
+
+        .qr-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .qr-item {
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .qr-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .qr-code {
+            width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+            border: 1px solid #eee;
+        }
+
+        .qr-label {
+            font-size: 14px;
+            color: #333;
+            text-align: center;
+        }
+
+        /* Footer styles */
+        .footer-section {
+            background-color: #1a3650;
+            color: white;
+            padding-top: 50px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10% 50px;
+            flex-wrap: wrap;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding-right: 30px;
+        }
+
+        .footer-title {
+            font-size: 18px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #17b3a3;
+        }
+
+        .contact-item-footer {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .contact-icon-footer {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .phone-icon::before {
+            content: '📞';
+            font-size: 16px;
+        }
+
+        .email-icon::before {
+            content: '✉';
+            font-size: 16px;
+        }
+
+        .location-icon::before {
+            content: '📍';
+            font-size: 16px;
+        }
+
+        .company-desc {
+            font-size: 14px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Quick Links styles if needed */
+        /*
+        .quick-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quick-link {
+            display: flex;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            margin-bottom: 15px;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .quick-link:hover {
+            color: #17b3a3;
+        }
+
+        .dot-icon {
+            width: 6px;
+            height: 6px;
+            background-color: #17b3a3;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .footer-contact-btn {
+            display: inline-block;
+            background-color: #17b3a3;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .footer-contact-btn:hover {
+            background-color: white;
+            color: #17b3a3;
+        }
+        */
+
+        .copyright-bar {
+            background-color: #122638;
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .website-url {
+            font-style: italic;
+        }
+
+        /* Animation for elements */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+             /* --- Add responsive styles for Header if needed from first file --- */
+             .header {
+                 flex-direction: column;
+                 align-items: flex-start;
+             }
+             .contact-info {
+                 margin-top: 15px; /* Add space between logo and contact info */
+             }
+             /* --- End Header responsive additions --- */
+
+            .qr-grid {
+                gap: 20px;
+            }
+
+            .qr-item {
+                width: 150px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+            }
+
+            .footer-column {
+                width: 100%;
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+
+            .copyright-bar {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .website-url {
+                margin-top: 10px;
+            }
+
+            /* --- Add responsive styles for Nav if needed from first file --- */
+            .main-nav {
+                 flex-direction: column;
+                 padding: 0;
+            }
+            .nav-links {
+                 flex-direction: column;
+                 width: 100%;
+            }
+            .nav-links li {
+                 text-align: center;
+                 border-bottom: 1px solid #254b6d;
+            }
+            .social-icons {
+                 justify-content: center;
+                 padding: 10px 0;
+            }
+            /* --- End Nav responsive additions --- */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo-container">
+            <!-- === LOGO HTML MODIFIED START === -->
+            <a href="index.html" class="logo-link">
+                <!-- IMPORTANT: Ensure "logo.png" path is correct relative to this file -->
+                <img src="logo.png" alt="BRAND NEW - 城市工业遗产档案设计有限责任公司 Logo" class="logo-image">
+            </a>
+            <!-- === LOGO HTML MODIFIED END === -->
+        </div>
+
+        <div class="contact-info">
+            <div class="contact-item">
+                <span class="contact-icon">⌚</span>
+                <span>09:00AM — 06:00PM</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">📞</span>
+                <span>0311-88888888</span>
+            </div>
+            <a href="lianxiwomen.html" class="contact-button">联系我们</a>
+        </div>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <ul class="nav-links">
+            <li><a href="index.html">城市工业遗产信息管理系统</a></li>
+            <li><a href="digital-archives.html">工业遗产数字化档案</a></li>
+            <li class="active"><a href="digital-museum.html">数字工业遗产博物馆</a></li>
+            <li><a href="anli.html">实际案例</a></li>
+            <li><a href="pingjia.html">使用后评价平台</a></li>
+            <li><a href="wenhua.html">“秀”迹文化周边</a></li>
+        </ul>
+        <div class="social-icons">
+            <a href="#" class="social-icon">f</a>
+            <a href="#" class="social-icon">t</a>
+            <a href="#" class="social-icon">G+</a>
+            <a href="#" class="social-icon">Ⓘ</a>
+        </div>
+    </nav>
+
+    <!-- Digital Museum Content -->
+    <section class="museum-content">
+        <h1 class="museum-title fade-in delay-1">数字工业遗产博物馆</h1>
+        <p class="museum-subtitle fade-in delay-2">扫描下方二维码即可查看对应工业遗产相关信息</p>
+
+        <div class="qr-grid fade-in delay-3">
+            <!-- Row 1 -->
+            <div class="qr-item">
+                <img src="1.png" alt="华北制药厂工业遗产二维码" class="qr-code">
+                <p class="qr-label">华北制药厂工业遗产</p>
+            </div>
+            <div class="qr-item">
+                <img src="2.png" alt="江南制造总局二维码" class="qr-code">
+                <p class="qr-label">江南制造总局</p>
+            </div>
+            <div class="qr-item">
+                <img src="3.png" alt="井陉矿区工业遗产二维码" class="qr-code">
+                <p class="qr-label">井陉矿区工业遗产</p>
+            </div>
+            <div class="qr-item">
+                <img src="4.png" alt="开滦唐山矿工业遗产二维码" class="qr-code">
+                <p class="qr-label">开滦唐山矿工业遗产</p>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="qr-item">
+                <img src="5.png" alt="秦皇岛耀华玻璃厂二维码" class="qr-code">
+                <p class="qr-label">秦皇岛耀华玻璃厂</p>
+            </div>
+            <div class="qr-item">
+                <img src="6.png" alt="山海关桥梁厂工业遗产二维码" class="qr-code">
+                <p class="qr-label">山海关桥梁厂工业遗产</p>
+            </div>
+            <div class="qr-item">
+                <img src="7.png" alt="石家庄市制酒厂二维码" class="qr-code">
+                <p class="qr-label">石家庄市制酒厂</p>
+            </div>
+            <div class="qr-item">
+                <img src="8.png" alt="唐山启新水泥厂二维码" class="qr-code">
+                <p class="qr-label">唐山启新水泥厂</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section" id="contact">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3 class="footer-title">联系方式</h3>
+                <div class="contact-item-footer">
+                    <span class="contact-icon-footer phone-icon"></span>
+                    <span>0311-88888888</span>
+                </div>
+                <div class="contact-item-footer">
+                    <span class="contact-icon-footer email-icon"></span>
+                    <span>example@gmail.com</span>
+                </div>
+                <div class="contact-item-footer">
+                    <span class="contact-icon-footer location-icon"></span>
+                    <span>河北省石家庄市新华区</span>
+                </div>
+            </div>
+
+            <div class="footer-column company-intro">
+                <h3 class="footer-title">公司简介</h3>
+                <p class="company-desc">
+                    景新工业遗产建筑设计有限责任公司，以工业遗产建筑改造设计，工业遗产建筑设计、代建，工业遗产改造方案咨询，策划等服务为主营业务。
+                </p>
+            </div>
+
+            <!-- Optional Quick Links column (Keep commented or remove if not used) -->
+            <!-- <div class="footer-column">
+                <h3 class="footer-title">快捷跳转</h3>
+                <ul class="quick-links">
+                    <li><a href="#" class="quick-link"><span class="dot-icon"></span>关于我们</a></li>
+                    <li><a href="#" class="quick-link"><span class="dot-icon"></span>项目详情</a></li>
+                    <li><a href="#" class="quick-link"><span class="dot-icon"></span>合作伙伴</a></li>
+                </ul>
+                <a href="lianxiwomen.html" class="footer-contact-btn">联系我们</a>
+            </div> -->
+        </div>
+
+        <div class="copyright-bar">
+            <div class="copyright-text">
+                Copyright © 2023 - 景新工业遗产建筑设计有限责任公司 All Right Reserved
+            </div>
+            <div class="website-url">
+                https://kyuan-13011722000.cos.ap-beijing.myqcloud.com/brandnew-html/index.html#
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animation for elements with animation classes
+            const animatedElements = document.querySelectorAll('.fade-in');
+
+            // Ensure animations trigger for elements visible on load
+             // Use a small delay to ensure styles are applied and transitions work
+            setTimeout(() => {
+                animatedElements.forEach(el => {
+                     // Check if element is already in viewport (or simply animate all .fade-in on load for this page)
+                     // For simplicity on this page, we'll just trigger them
+                     el.style.opacity = '1';
+                     // Optional: Add transform back if needed by @keyframes
+                     // el.style.transform = 'translateY(0)';
+                });
+            }, 50); // Small delay
+
+
+            // NOTE: If you need scroll-triggered animations for elements further down
+            // (like the footer if the QR grid was very long), you would add the
+            // IntersectionObserver logic here, similar to the first file.
+            // For this specific page layout, simple load animations might be sufficient.
+        });
+    </script>
+</body>
+</html>
